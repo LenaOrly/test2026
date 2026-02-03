@@ -7,12 +7,16 @@ describe('Вход в систему', () => {
         });
     });
     beforeEach(() => {
-        cy.visit(testData.baseUrl)/web/index.php/auth/login
-        cy.wait(5000);
+        cy.visit(`${testData.baseUrl}/web/index.php/auth/login`);
+        cy.get('input[name="username"]').should('be.visible');
     })
 
     //тест успешного входа
     it('Успешная авторизация', () => {
-        cy.get('[class-"oxd-input oxd-input--active"]').type(login)
+        cy.get('input[name="username"]').type(testData.validUser.username);
+        cy.get('input[name="password"]').type(testData.validUser.password);
+        cy.get('button[type="submit"]').click();
+        cy.url().should('include', '/dashboard');
+        cy.get('.oxd-topbar-header-breadcrumb').should('contain', 'Dashboard');
     })
 });

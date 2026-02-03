@@ -1,5 +1,11 @@
 {
     "baseUrl": "https://opensource-demo.orangehrmlive.com",
-    "login": "Admin",
-    "password": "admin123"
+    "validUser": {
+        "login": "Admin",
+        "password": "admin123"
+    },
+    "invalidUser": {
+        "login": "Admin",
+        "password": "wrongPassword"
+    }
 }
