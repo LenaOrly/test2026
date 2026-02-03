@@ -2,7 +2,7 @@
 describe('Вход в систему', () => {
     let testData;
     before(() => {
-        cy.fixtures('test_usets').then((data) => {
+        cy.fixtures('test_user').then((data) => {
             testData = data;
         });
     });
